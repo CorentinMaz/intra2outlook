@@ -1,0 +1,25 @@
+{
+  "name": "intra2outlook",
+  "version": "1.0.0",
+  "description": "Script for count xp hub",
+  "main": "intra2outlook.js",
+  "scripts": {
+    "start": "node intra2outlook.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corentin-creator/intra2outlook.git"
+  },
+  "author": "Corentin MAZABRARD Clement MADZAR Maxime SIMON Thomas GRAND",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corentin-creator/intra2outlook/issues"
+  },
+  "homepage": "https://github.com/corentin-creator/intra2outlook#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "readline-sync": "^1.4.10"
+  }
+}
