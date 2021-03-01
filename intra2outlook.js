@@ -1,18 +1,17 @@
-// const fetch = require("node-fetch");
-// let url = 'https://intra.epitech.eu/auth-6f31b8a817164044ace66cae8a6672fa91bca461/planning/load?format=json'
-// // const test = fetch(url) .then(response => response.json()) .then(data => data);
-
-// fetch(url)
-//     .then(response => response.json())
-//     .then(data => data);
-
-// console.log(test);
-
 const request = require("axios");
+const url = 'https://intra.epitech.eu/auth-6f31b8a817164044ace66cae8a6672fa91bca461/planning/load?format=json';
 
-request.get('https://intra.epitech.eu/auth-6f31b8a817164044ace66cae8a6672fa91bca461/planning/load?format=json')
+function prinata(data) {
+    const obj = data;
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i].event_registered == 'registered')
+            console.log(obj[i]);
+    }
+}
+
+request.get(url)
     .then(res => {
         const data = res.data;
-        // console.log(data);
-        console.log(data.get('event_required:'));
+        prinata(data);
     })
+    .then();
