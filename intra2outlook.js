@@ -8,7 +8,6 @@ function prinata(data) {
     for (var i = 0; i < obj.length; i++) {
         if (obj[i].event_registered == 'registered') {
             var session = [];
-            session.push((obj[i]).scolaryear);
             session.push((obj[i]).titlemodule);
             session.push((obj[i]).acti_title);
             session.push((obj[i]).start);
@@ -16,8 +15,10 @@ function prinata(data) {
             session.push((obj[i]).type_title);
             if (obj[i].room.code == undefined)
                 session.push((obj[i]).room.type);
-            else
-                session.push((obj[i]).room.code);
+            else {
+                for (var j = obj[i].room.code.length; obj[i].room.code[j] != '/'; j--);
+                session.push((obj[i]).room.code.substring(j+1));
+            }
             sessions.push(session);
         }
     }
