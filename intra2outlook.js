@@ -1,6 +1,6 @@
 const request = require("axios");
-const url = 'https://intra.epitech.eu/auth-6f31b8a817164044ace66cae8a6672fa91bca461/planning/load?format=json';
-
+require("dotenv").config();
+const url = `https://intra.epitech.eu/auth-${process.env.ID_AUTOLOGIN}`;
 var sessions = [];
 
 function prinata(data) {
