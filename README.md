@@ -32,7 +32,7 @@ Copy the part ater "https://intra.epitech.eu/auth-"
 
 2. Create a ".env" file at the root of the repo
 
-3. Edit your .env with -> ID_AUTOLOGIN="0123456789abcdefghijklmnopqrstuvwxyz0123456789" <-
+3. Edit your .env with -> ID_AUTOLOGIN="..." <-
 
 4. Get your access token here -> https://oauthplay.azurewebsites.net/
 
