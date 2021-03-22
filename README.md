@@ -22,6 +22,7 @@ Clone the repository and install the dependencies.
 git clone https://github.com/CorentinMaz/intra2outlook.git
 cd intra2outlook
 npm install
+npm install node-outlook
 
 # AutoLogin EPITECH
 1. Get your AutoLogin here -> https://intra.epitech.eu/admin/autolog
