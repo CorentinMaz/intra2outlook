@@ -52,13 +52,14 @@ def write_mail(fichier, title, start, end, location, description):
     fichier.write("DESCRIPTION: %s\n" % description)
     fichier.write("STATUS:CONFIRMED\nSEQUENCE:3\nBEGIN:VALARM\nTRIGGER:-PT10M\nDESCRIPTION:Pickup Reminder\nACTION:DISPLAY\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR")
 
-def main():
+
+def init_mail(receiver_email, title, start, end, location, description):
     fichier = open("intra2outlook.ics", "w+")
     fichier = open("intra2outlook.ics", "a")
-    write_mail(fichier, "title", "20210517T103400", "20210517T110400", "Salle machine 1", "description")
+    write_mail(fichier, title, start, end, location, description)
     fichier.close()
-    send_mail("thomas1.grand@epitech.eu")
+    send_mail(receiver_email)
     os.remove("intra2outlook.ics")
 
 if __name__ == "__main__":
-    main()
+    init_mail("corentin.mazabrard@epitech.eu", "title", "20210517T103400", "20210517T110400", "Salle machine 1", "description")
