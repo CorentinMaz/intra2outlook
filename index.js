@@ -1,26 +1,25 @@
-// var filter = document.getElementsByClassName("item event")
-
-// filter = 1;
 document.addEventListener("DOMNodeInserted", () => test());
 
 function test() {
   var button = document.getElementsByClassName("button register")
+  var date = document.getElementsByClassName("date")
   var i = 0;
   let click = [];
 
-  while (button[i]) {
-    button[i].setAttribute('id', 'click' + i);
-    click[i] = document.getElementById('click' + i);
-    click[i].addEventListener('click', function () {
-      console.log("OKOKO");
-    });
+  while (date[i]) {
+    date[i].setAttribute('id', 'date' + i);
+    console.log(date[i]);
     i++;
   }
-  // console.log(click);
+
+  var j = 0;
+  while (button[j]) {
+    button[j].setAttribute('id', 'click' + j);
+    click[j] = document.getElementById('click' + j);
+
+    click[j].addEventListener('click', function () {
+      console.log("OKKOKOKK");
+    });
+    j++;
+  }
 }
-
-// var test  = document.getElementById("click0");
-
-// test.addEventListener('click0', function () {
-//     console.log("OKOKO");
-// });
