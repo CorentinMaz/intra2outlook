@@ -1,34 +1,30 @@
 document.addEventListener("DOMNodeInserted", () => test());
 
 function test() {
-  var button = document.getElementsByClassName("button register")
-  var date = document.getElementsByClassName("day")
-  // var data = document.getElementsByTagName("data-date")
-  let dates = [];
+  var button = document.getElementsByClassName("button register");
+  var date = document.getElementsByClassName("day");
   var i = 0;
+  let dates = [];
   let click = [];
-  var event;
-  var events = [];
-  var row;
+  var event = [];
+  var row = [];
 
   while (date[i]) {
     dates[i] = date[i].getAttribute("data-date");
     event = date[i].getElementsByClassName("events");
-    console.log("OK3");
-    row = event.getElementById
-    console.log(event);
-    // var j = 0;
-    // while (event[j]) {
-    //   events[j] = event[j].setAttribute('id', 'EVENT');
-    //   // events[j].getElementById('EVENT');
-    //   // events[j].setAttribute('id', 'row');
-    //   // row = events[i].getElementById("row")
-    //   events[j] = event[j].getAttribute("class");
-    //   console.log("OK1");
-    //   console.log(events[j]);
-    //   console.log("OK2");
-    //   j++;
-    // }
+    var j = 0;
+    while (event[j]) {
+      row = event[j].getElementsByClassName('row');
+      var x = 0;
+      while (row[x]) {
+        console.log("OK1");
+        console.log(row[x]);
+        x++;
+      }
+      console.log("OK2");
+      console.log(event[j]);
+      j++;
+    }
     i++;
   }
   console.log(dates);
