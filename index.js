@@ -7,22 +7,45 @@ function test() {
   let dates = [];
   let click = [];
   var event = [];
+  var time = [];
+  var room = [];
   var row = [];
+  var activities = [];
+  var activity = [];
 
   while (date[i]) {
     dates[i] = date[i].getAttribute("data-date");
     event = date[i].getElementsByClassName("events");
     var j = 0;
     while (event[j]) {
+      console.log(event[j]);
       row = event[j].getElementsByClassName('row');
       var x = 0;
       while (row[x]) {
-        console.log("OK1");
+        console.log('-------------------------------------------------------------');
         console.log(row[x]);
+        activities = row[x].getElementsByClassName('activite');
+        time = row[x].getElementsByClassName('time');
+        room = row[x].getElementsByClassName('room');
+        var a = 0;
+        while (activities[a]) {
+          console.log(activities[a]);
+          activity = activities[a].getElementsByClassName('event');
+          console.log(activity[0]);
+          a++;
+        }
+        var t = 0;
+        while (time[t]) {
+          console.log(time[t]);
+          t++;
+        }
+        var r = 0;
+        while (room[r]) {
+          console.log(room[r]);
+          r++;
+        }
         x++;
       }
-      console.log("OK2");
-      console.log(event[j]);
       j++;
     }
     i++;
