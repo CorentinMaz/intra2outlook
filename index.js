@@ -101,9 +101,6 @@ function test() {
     a++;
   }
 
-  const python = spawn('python', ['create_file.py']);
-  p
-
   j = 0;
   while (button[j]) {
     get_click[j] = document.getElementById('click' + j);
