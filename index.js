@@ -4,7 +4,7 @@ function test() {
   var button = document.getElementsByClassName("button register");
   var date = document.getElementsByClassName("day");
   let dates = [];
-  let set_click = [];
+  let get_click = [];
   var events = [];
   var time = [];
   var room = [];
@@ -15,14 +15,11 @@ function test() {
   let actions = [];
   var click = [];
   var all_events = [];
-  var j = 0;
+  var all_events_bis = [];
 
+  var j = 0;
   while (button[j]) {
     button[j].setAttribute('id', 'click' + j);
-    set_click[j] = document.getElementById('click' + j);
-    set_click[j].addEventListener('click', function () {
-      console.log("OKKOKOKK");
-    });
     j++;
   }
 
@@ -30,9 +27,11 @@ function test() {
   while (date[i]) {
     dates[i] = date[i].getAttribute("data-date");
     events = date[i].getElementsByClassName("events");
+
     var nb_events = 0;
     while (events[nb_events]) {
       row = events[nb_events].getElementsByClassName('row');
+
       var nb_row = 0;
       while (row[nb_row]) {
         var event_informations = {
@@ -91,5 +90,28 @@ function test() {
     }
     i++;
   }
-  console.log(all_events);
+
+  var a = 0;
+  var b = 0;
+  while (all_events[a]) {
+    if (all_events[a].click != "") {
+      all_events_bis[b] = all_events[a];
+      b++;
+    }
+    a++;
+  }
+
+  j = 0;
+  while (button[j]) {
+    get_click[j] = document.getElementById('click' + j);
+    get_click[j].addEventListener('click', function () {
+      var i = 0;
+      while (all_events_bis[i]) {
+        if (all_events_bis[i].click == this.getAttribute("id"))
+          console.log(all_events_bis[i]);
+        i++;
+      }
+    });
+    j++;
+  }
 }
