@@ -1,6 +1,13 @@
-document.addEventListener("DOMNodeInserted", () => test());
+document.addEventListener("DOMNodeInserted", () => IntraToOutlook());
 
-function test() {
+function getTimeFormat(event, start, end) {
+  hour = event.time.substring(start, end).replace(':', '') + '00';
+  date = event.date.replaceAll('-', '');
+  time = date + 'T' + hour;
+  return time;
+}
+
+function IntraToOutlook() {
   var button = document.getElementsByClassName("button register");
   var date = document.getElementsByClassName("day");
   let dates = [];
@@ -40,6 +47,8 @@ function test() {
           event_name: "",
           time: "",
           room: "",
+          begin: "",
+          end: "",
         };
         event_informations.date = dates[i];
         activite = row[nb_row].getElementsByClassName('activite');
@@ -96,6 +105,8 @@ function test() {
   while (all_events[a]) {
     if (all_events[a].click != "") {
       all_events_bis[b] = all_events[a];
+      all_events_bis[b].begin = getTimeFormat(all_events[a], 0, 5);
+      all_events_bis[b].end = getTimeFormat(all_events[a], 8, 13);
       b++;
     }
     a++;
