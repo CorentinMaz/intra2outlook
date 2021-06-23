@@ -17,11 +17,10 @@ function sendEmail(event) {
     + 'STATUS:CONFIRMED\nSEQUENCE:3\nBEGIN:VALARM\nTRIGGER:-PT10M\nDESCRIPTION:Pickup Reminder\nACTION:DISPLAY\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR'
   var data = new URLSearchParams();
 
-  data.set('to', 'clement.madzar@epitech.eu');
   data.set('subject', 'Planning intra');
   data.set('text', event.event_name);
   data.set('content', content);
-  fetch("http://localhost:7000/v1/attachments-mail", {
+  fetch("http://localhost:9000/v1/attachments-mail", {
       method: 'POST',
       mode: 'no-cors',
       cache: 'no-cache',

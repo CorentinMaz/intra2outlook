@@ -1,4 +1,5 @@
 const express = require("express");
+const config = require("./config.json");
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const app = express();
@@ -6,7 +7,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const route = express.Router();
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 9000;
 
 app.use('/v1', route);
 
@@ -18,17 +19,17 @@ const transporter = nodemailer.createTransport({
     port: 465,
     host: "smtp.gmail.com",
     auth: {
-        user: 'intra2outlook@gmail.com',
-        pass: 'N2Cn8Pa4q',
+        user: config.email_sender,
+        pass: config.password_sender,
     },
     secure: true,
 });
 
 route.post('/attachments-mail', (req, res) => {
-    const {to, subject, text, content} = req.body;
+    const {subject, text, content} = req.body;
     const mailData = {
-        from: 'intra2outlook@gmail.com',
-        to: to,
+        from: config.email_sender,
+        to: config.email_epitech,
         subject: subject,
         text: text,
         icalEvent: {
