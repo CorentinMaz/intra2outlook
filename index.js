@@ -7,6 +7,32 @@ function getTimeFormat(event, start, end) {
   return time;
 }
 
+function sendEmail(event) {
+  const content = 'BEGIN:VCALENDAR\nVERSION:2.0\nCALSCALE:GREGORIAN\nBEGIN:VEVENT\n'
+    + 'SUMMARY:' + event.event_name + '\n'
+    + 'DTSTART;TZID=Europe/Paris:' + event.begin + '\n'
+    + 'DTEND;TZID=Europe/Paris:' + event.end + '\n'
+    + 'LOCATION:' + event.room + '\n'
+    + 'DESCRIPTION:' + event.event_name + '\n'
+    + 'STATUS:CONFIRMED\nSEQUENCE:3\nBEGIN:VALARM\nTRIGGER:-PT10M\nDESCRIPTION:Pickup Reminder\nACTION:DISPLAY\nEND:VALARM\nEND:VEVENT\nEND:VCALENDAR'
+  var data = new URLSearchParams();
+
+  data.set('to', 'clement.madzar@epitech.eu');
+  data.set('subject', 'Planning intra');
+  data.set('text', event.event_name);
+  data.set('content', content);
+  fetch("http://localhost:7000/v1/attachments-mail", {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: data
+  }).then(function(response) {
+  });
+}
+
 function IntraToOutlook() {
   var button = document.getElementsByClassName("button register");
   var date = document.getElementsByClassName("day");
@@ -118,8 +144,9 @@ function IntraToOutlook() {
     get_click[j].addEventListener('click', function () {
       var i = 0;
       while (all_events_bis[i]) {
-        if (all_events_bis[i].click == this.getAttribute("id"))
-          console.log(all_events_bis[i]);
+        if (all_events_bis[i].click == this.getAttribute("id")) {
+          sendEmail(all_events_bis[i]);
+        }
         i++;
       }
     });
