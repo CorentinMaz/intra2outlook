@@ -20,9 +20,7 @@ $> git clone https://github.com/CorentinMaz/intra2outlook
 
 ```
 $> cd intra2outlook/
-$> npm install nodemailer
-$> npm install express
-$> npm install body-parser
+$> npm install
 ```
 
 ### Step 3 : Fill in your epitech login

@@ -1,0 +1,17 @@
+{
+  "name": "intra2outlook",
+  "version": "1.0.0",
+  "description": "server to handle email sender",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Corentin MAZABRARD, Clement MADZAR, Maxime SIMON, Thomas GRANND",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.6.2"
+  }
+}
